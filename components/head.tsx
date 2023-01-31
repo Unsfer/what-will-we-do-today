@@ -1,10 +1,11 @@
-export default function Head() {
-  const title = "Next.js Prisma MySQL Auth Starter";
-  const description =
-    "This is a Next.js starter kit that uses Next-Auth for simple email + password login and a MySQL database to persist the data.";
+import Head from 'next/head';
+
+export default function AppHead() {
+  const title = "Что мы делаем сегодня вечером";
+  const description = "Приложение для поиска занятий на вечер";
   const image = "https://nextjs-mysql-auth.vercel.app/thumbnail.png";
   return (
-    <>
+    <Head>
       <title>{title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content={title} />
@@ -16,6 +17,6 @@ export default function Head() {
       <meta name="twitter:image" content={image} />
       <meta charSet="utf-8" />
       <link rel="icon" href="/favicon.ico" />
-    </>
+    </Head>
   );
 }

@@ -25,7 +25,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           }).then(({ ok, error }) => {
             setLoading(false);
             if (ok) {
-              router.push("/protected");
+              router.push("/");
             } else {
               toast.error(error);
             }
@@ -43,7 +43,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           }).then(async (res) => {
             setLoading(false);
             if (res.status === 200) {
-              toast.success("Account created! Redirecting to login...");
+              toast.success("Аккаунт создан! Залогиньтесь...");
               setTimeout(() => {
                 router.push("/login");
               }, 2000);
@@ -54,20 +54,21 @@ export default function Form({ type }: { type: "login" | "register" }) {
         }
       }}
       className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
+      method="POST"
+      autoComplete="off"
     >
       <div>
         <label
           htmlFor="email"
           className="block text-xs text-gray-600 uppercase"
         >
-          Email Address
+          Логин
         </label>
         <input
           id="email"
           name="email"
-          type="email"
-          placeholder="panic@thedis.co"
-          autoComplete="email"
+          type="text"
+          placeholder="Федя"
           required
           className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
@@ -77,7 +78,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           htmlFor="password"
           className="block text-xs text-gray-600 uppercase"
         >
-          Password
+          Пароль
         </label>
         <input
           id="password"
@@ -98,24 +99,22 @@ export default function Form({ type }: { type: "login" | "register" }) {
         {loading ? (
           <LoadingDots color="#808080" />
         ) : (
-          <p>{type === "login" ? "Sign In" : "Sign Up"}</p>
+          <p>{type === "login" ? "Войти" : "Создать"}</p>
         )}
       </button>
       {type === "login" ? (
         <p className="text-center text-sm text-gray-600">
-          Don&apos;t have an account?{" "}
+          Нет аккаунта?{" "}
           <Link href="/register" className="font-semibold text-gray-800">
-            Sign up
-          </Link>{" "}
-          for free.
+            Создать
+          </Link>.
         </p>
       ) : (
         <p className="text-center text-sm text-gray-600">
-          Already have an account?{" "}
+          Есть аккаунт?{" "}
           <Link href="/login" className="font-semibold text-gray-800">
-            Sign in
-          </Link>{" "}
-          instead.
+            Войти
+          </Link>.
         </p>
       )}
     </form>
