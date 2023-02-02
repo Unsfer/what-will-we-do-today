@@ -31,7 +31,7 @@ export default function RootLayout({
         <main
           className={cn(
             'px-4 mt-24',
-            'max-w-2xl',
+            'max-w-7xl',
             'mx-auto my-auto',
             'flex flex-col justify-center gap-12',
             'divide-y divide-gray-200 dark:divide-gray-900',

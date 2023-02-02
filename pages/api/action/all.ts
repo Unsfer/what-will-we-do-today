@@ -9,6 +9,11 @@ export default async function handler(
     include: {
       creator: true,
     },
+    orderBy: [
+      {
+        dateCreated: 'desc',
+      },
+    ],
   });
   res.status(200).json(actions);
 }
