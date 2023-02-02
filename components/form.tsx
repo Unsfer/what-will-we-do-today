@@ -19,7 +19,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
         if (type === "login") {
           signIn("credentials", {
             redirect: false,
-            email: e.currentTarget.email.value,
+            name: e.currentTarget.login.value,
             password: e.currentTarget.password.value,
             // @ts-ignore
           }).then(({ ok, error }) => {
@@ -37,7 +37,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              email: e.currentTarget.email.value,
+              name: e.currentTarget.login.value,
               password: e.currentTarget.password.value,
             }),
           }).then(async (res) => {
@@ -59,14 +59,14 @@ export default function Form({ type }: { type: "login" | "register" }) {
     >
       <div>
         <label
-          htmlFor="email"
+          htmlFor="login"
           className="block text-xs text-gray-600 uppercase"
         >
           Логин
         </label>
         <input
-          id="email"
-          name="email"
+          id="login"
+          name="login"
           type="text"
           placeholder="Федя"
           required

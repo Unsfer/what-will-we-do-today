@@ -9,16 +9,16 @@ export default NextAuth({
       credentials: {},
       // @ts-ignore
       async authorize(credentials, _) {
-        const { email, password } = credentials as {
-          email: string;
+        const { name, password } = credentials as {
+          name: string;
           password: string;
         };
-        if (!email || !password) {
+        if (!name || !password) {
           throw new Error("Missing username or password");
         }
         const user = await prisma.user.findUnique({
           where: {
-            email,
+            name,
           },
         });
         // if user doesn't exist or password doesn't match
@@ -29,5 +29,8 @@ export default NextAuth({
       },
     }),
   ],
-  session: { strategy: "jwt" },
+  session: {
+    strategy: "jwt",
+    maxAge: 60 * 24 * 60 * 60, // 60 days
+  },
 });

@@ -6,10 +6,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { email, password } = req.body;
+  const { name, password } = req.body;
   const exists = await prisma.user.findUnique({
     where: {
-      email,
+      name,
     },
   });
   if (exists) {
@@ -17,7 +17,7 @@ export default async function handler(
   } else {
     const user = await prisma.user.create({
       data: {
-        email,
+        name,
         password: await hash(password, 10),
       },
     });

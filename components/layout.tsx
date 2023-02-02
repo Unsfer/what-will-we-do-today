@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <div className={inter.variable}>
       <AppHead/>
-      <Toaster />
+      <Toaster/>
       <div
         className={cn(
           'text-primary',
@@ -30,7 +30,7 @@ export default function RootLayout({
         
         <main
           className={cn(
-            'px-4 mt-12',
+            'px-4 mt-24',
             'max-w-2xl',
             'mx-auto my-auto',
             'flex flex-col justify-center gap-12',

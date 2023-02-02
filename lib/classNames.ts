@@ -1,4 +1,4 @@
 export default function cn(...classes: string[]): string {
-    return classes.filter(Boolean).join(' ')
-  }
+  return classes.filter(Boolean).join(' ')
+}
   

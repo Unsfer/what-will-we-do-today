@@ -12,6 +12,18 @@ datasource db {
 
 model User {
   id        Int     @id @default(autoincrement())
-  email     String  @unique
+  name      String  @unique
   password  String
+  actions   Action[]
+}
+
+model Action {
+  id            Int       @id @default(autoincrement())
+  name          String    @unique
+  description   String
+  status        String?
+  statusDate    DateTime?
+  creator       User      @relation(fields: [creatorId], references: [id])
+  creatorId     Int
+  dateCreated   DateTime  @default(now())
 }
