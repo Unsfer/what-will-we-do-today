@@ -7,19 +7,21 @@
 }
 
 .currentRandom {
-  background-color: rgba(0, 0, 250, 0.3);
-  box-shadow: -0.1em -0.1em 0.5em 0.2em gray;
+  background-color: rgba(0, 0, 250, 0.3) !important;
+  box-shadow: -0.1em -0.1em 0.5em 0.2em gray !important;
   transform: translate(0.2em, 0.2em);
 }
 
 .actionCard.fullscreen {
-  opacity: 0;
-  z-index: -10;
+  opacity: 0 !important;
+  z-index: -10 !important;
+  width: calc(100vw - 4rem) !important;
+  max-width: 30rem !important;
 }
 
 .actionCard.fullscreen.picked {
   font-size: 1.5em;
-  box-shadow: 0 0 0 1000rem rgba(0, 0, 0, 0.8);
-  opacity: 1;
-  z-index: 15;
+  box-shadow: 0 0 0 1000rem rgba(0, 0, 0, 0.8) !important;
+  opacity: 1 !important;
+  z-index: 15 !important;
 }

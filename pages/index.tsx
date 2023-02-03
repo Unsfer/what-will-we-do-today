@@ -66,12 +66,12 @@ export default function Home() {
         <h1 className="font-bold text-2xl">
           Мероприятия
         </h1>
-        <button
-          className='w-48 border-none bg-blue-700 text-gray-200 hover:bg-blue-800 h-10 w-full rounded-md border text-sm transition-all focus:outline-none'
+        {!isLoading && data && data.length > 0 && <button
+          className='w-48 mt-2 border-none bg-blue-700 text-gray-200 hover:bg-blue-800 h-10 w-full rounded-md border text-sm transition-all focus:outline-none'
           onClick={startRandomising}
         >
           Рандом
-        </button>
+        </button>}
       </div>
       <div className="mt-5 text-center">
         {isLoading && <p>Загрузка...</p>}
