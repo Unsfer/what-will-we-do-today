@@ -1,0 +1,25 @@
+.actionCard {
+  transition: 
+    background-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    transform 0.15s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.currentRandom {
+  background-color: rgba(0, 0, 250, 0.3);
+  box-shadow: -0.1em -0.1em 0.5em 0.2em gray;
+  transform: translate(0.2em, 0.2em);
+}
+
+.actionCard.fullscreen {
+  opacity: 0;
+  z-index: -10;
+}
+
+.actionCard.fullscreen.picked {
+  font-size: 1.5em;
+  box-shadow: 0 0 0 1000rem rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  z-index: 15;
+}
